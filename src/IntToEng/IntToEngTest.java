@@ -117,4 +117,53 @@ public class IntToEngTest {
 		String actual = IntToEng.translateEng(10000);
 		assertThat(actual, is(expected));
 	}
+	@Test
+	public void int12456を代入したらtwelvethousandfourhundredfifrysixを返す() {
+		String expected = "twelve thousand four hundred fifty six";
+		String actual = IntToEng.translateEng(12456);
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void int19000を代入したらtenthousandを返す() {
+		String expected = "nineteen thousand";
+		String actual = IntToEng.translateEng(19000);
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void int31000を代入したらthirtyonethousandを返す() {
+		String expected = "thirty one thousand";
+		String actual = IntToEng.translateEng(31000);
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void int51100を代入したらfiftyonethousandonehundredを返す() {
+		String expected = "fifty one thousand one hundred";
+		String actual = IntToEng.translateEng(51100);
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void int69320を代入したらfiftyonethousandonehundredを返す() {
+		String expected = "sixty nine thousand three hundred twenty";
+		String actual = IntToEng.translateEng(69320);
+		assertThat(actual, is(expected));
+	}
+	
+	@Test
+	public void int10201を代入したらfiftyonethousandonehundredを返す() {
+		String expected = "ten thousand two hundred one";
+		String actual = IntToEng.translateEng(10201);
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void int10001を代入したらfiftyonethousandonehundredを返す() {
+		String expected = "ten thousand one";
+		String actual = IntToEng.translateEng(10001);
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void int100000を代入したらfiftyonethousandonehundredを返す() {
+		String expected = "one hundred thousand";
+		String actual = IntToEng.translateEng(100000);
+		assertThat(actual, is(expected));
+	}
 }
