@@ -12,7 +12,7 @@ public class IntToEng {
 	
 	static String[] number10times = {
 		"twenty", "thirty", "forty", "fifty",
-		"sixty", "seventy", "eighty", "ninety"
+		"sixty", "seventy", "eighty", "ninety","ten"
 	};
 	
 	// メインメソッド
@@ -37,11 +37,26 @@ public class IntToEng {
     		if(n%1000>=100) return thousandhundred(n) + " " + tentimes(n%100);
     		return thousandtimes(n) + " " + tentimes(n%100);
     	}
-    	if(n==10000) return "ten thousand"; 
+    	if(n<100000){
+    		if(n==10000) return "ten thousand";
+    		if(n%10000==0) return  number10times[n/10000-2] + " " + "thousand";
+    		if(n%1000==0) return tenthousand(n);
+    		if(n%1000 <100) return tenthousand(n) + " " +tentimes(n%100);
+    		if(n%100==0) return tenthousand(n) + " " + hundredtimes(n%1000);
+    		return tenthousand(n) + " " + hundredtimes(n%1000) + " " + tentimes(n%100);
+    	}
+    	if(n==100000){
+    		return "one hundred thousand";
+    	}
     	return "";
     }
 
-	public static String thousandhundred(int n) {
+    public static String tenthousand(int n) {
+    	if(n/1000<20)return numberZeroToNineteen[n/1000] + " " + "thousand";
+		if(n/1000>=20) return tentimes(n/1000) + " " + "thousand";
+		return number10times[n/1000-2] + " " + numberZeroToNineteen[n%10] + "thousand";
+	}
+    public static String thousandhundred(int n) {
 		return thousandtimes(n) + " " + hundredtimes(n%1000);
 	}
 
